@@ -2,7 +2,8 @@
 package universidadg1.accesoadatos;
 
 import java.sql.Connection;
-
+import java.sql.*;
+import universidadg1.entidades.Inscripcion;
 /**
  *
  * @author MI EQUIPO

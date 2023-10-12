@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author MI EQUIPO
@@ -35,8 +36,10 @@ public class Conexion {
                 
             } catch (ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "Error al cargar los Drivers");
-            }catch(SQLException ex){
+            }catch(SQLException sql){
                 JOptionPane.showMessageDialog(null, "Error al conectarse a la BD");
+                if (sql.getErrorCode() == 1062) {
+                JOptionPane.showMessageDialog(null, "Ya exite un alumno con ese DNI");
             }
         }
         return connection;
