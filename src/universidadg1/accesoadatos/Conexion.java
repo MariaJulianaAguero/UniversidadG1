@@ -1,4 +1,3 @@
-
 package universidadg1.accesoadatos;
 
 import java.sql.Connection;
@@ -7,7 +6,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
 
 public class Conexion {
 
@@ -35,7 +33,7 @@ public class Conexion {
                     JOptionPane.showMessageDialog(null, "Ya exite un alumno con ese DNI");
                 }
             }
-            
+
         }
         return connection;
     }
