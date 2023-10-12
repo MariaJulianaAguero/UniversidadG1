@@ -4,6 +4,10 @@ package universidadg1.accesoadatos;
 import java.sql.Connection;
 import java.sql.*;
 import universidadg1.entidades.Inscripcion;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author MI EQUIPO
@@ -18,25 +22,27 @@ public class InscripcionData {
     public void guardarInscripcion(Inscripcion insc){
         String sql= "INSERT INTO inscripcion(idAlumno, idMateria,nota)"
                 +"VALUES(?,?,?)";
-        try{
-            PreparedStatement ps= con.prepareStatement (sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1,alumno.getDni());
-            ps.setString(2,alumno.getApellido());
-            ps.setString(3,alumno.getNombre());
-            ps.setDate(4,Date.valueOf(alumno.getFechaNac()));
-            ps.setBoolean(5,alumno.isActivo());
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, insc.getAlumno().getIdAlumno());
+            ps.setInt(2, insc.getMateria().getIdMateria());
+            ps.setDouble(3, insc.getNota());
             ps.executeUpdate();
             ResultSet rs= ps.getGeneratedKeys();
             if(rs.next()){
-                alumno.setIdAlumno(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Alumno Guardado");
+                insc.setIdInscripcion(rs.getInt(1));//solo hay una
+                JOptionPane.showMessageDialog(null, "Inscripcion registrada");
             }
-                ps.close();
             
-           } catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+            ps.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
+        
+        
+        
+    } 
     
 }
