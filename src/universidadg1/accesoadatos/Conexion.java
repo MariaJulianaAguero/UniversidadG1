@@ -16,14 +16,14 @@ public class Conexion {
     private static Connection connection;
     private static DriverManager Connection;
 
-    public Conexion() {
+    private Conexion() {
     }
 
     public static Connection getConexion() {
         if (connection == null) {
             try {
                 Class.forName("org.mariadb.jdbc.Driver");
-                Connection = (DriverManager) DriverManager.getConnection(URL + DB, USUARIO, PASSWORD);
+                connection = DriverManager.getConnection(URL + DB, USUARIO, PASSWORD);
 
             } catch (ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "Error al cargar los Drivers");

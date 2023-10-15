@@ -22,9 +22,10 @@ public class UniversidadG1 {
      */
     public static void main(String[] args) {
         Connection con= Conexion.getConexion();
-        Alumno camilo= new Alumno(34123657,"Urquiza","Camilo",LocalDate.of(1995, 7, 1),true);
+        Alumno Juliana= new Alumno(39395880,"Aguero","Juliana",LocalDate.of(1996, 9, 17),true);
         AlumnoData alum= new AlumnoData();
-        alum.guardarAlumno(camilo);
+        alum.guardarAlumno(Juliana);
+        
     }
     
 }
