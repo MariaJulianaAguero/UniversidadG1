@@ -10,7 +10,9 @@ import java.time.LocalDate;
 import java.util.List;
 import universidadg1.accesoadatos.AlumnoData;
 import universidadg1.accesoadatos.Conexion;
+import universidadg1.accesoadatos.MateriaData;
 import universidadg1.entidades.Alumno;
+import universidadg1.entidades.Materia;
 
 /**
  *
@@ -22,33 +24,27 @@ public class UniversidadG1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     //  Connection con= Conexion.getConnection();   
-          
-      
-      
-      //AGREGAR WACHOS
-          Alumno a1= new Alumno(12351777, "paredes", "sandra", LocalDate.of(1996,7,21), true);
-          Alumno a2= new Alumno(66651777, "gomez", "sandra", LocalDate.of(1997,3,6), true);
-          AlumnoData alumnoData= new AlumnoData();
+        //  Connection con= Conexion.getConnection();   
+
+        //AGREGAR WACHOS
+//        Alumno a1 = new Alumno(12351777, "paredes", "sandra", LocalDate.of(1996, 7, 21), true);
+//        Alumno a2 = new Alumno(66651777, "gomez", "sandra", LocalDate.of(1997, 3, 6), true);
+//        AlumnoData alumnoData = new AlumnoData();
 //          alumnoData.guardarAlumno(a1);
 //          alumnoData.guardarAlumno(a2);
 
-
-      //  MODIFICAR WACHOS
-      
+        //  MODIFICAR ALUMNOS
 //      
 //      Alumno sebAlumno=new Alumno(1,32751482, "castro", "sebas", LocalDate.of(1987,7,1), true);
 //      AlumnoData alumnoData= new AlumnoData();
 //      alumnoData.modificarAlumno(sebAlumno);;
-      
-      
-            //  borrar WACHOS
- 
-     // alumnoData.borradoLogicoAlumno(1);
-     
-     
-            //  mostrar WACHOS por ID
-            
+
+
+        //borrar ALUMNOS
+        // alumnoData.borradoLogicoAlumno(1);
+        
+        
+        //mostrar ALUMNOS por ID
 //        Alumno alumnoEncontradoID=alumnoData.buscarAlumnoPorId(1);
 //        System.out.println("-------------DATOS ALUMNO ENCONTRADO ID-----------------");
 //        System.out.println("    ");
@@ -57,31 +53,30 @@ public class UniversidadG1 {
 //        System.out.println("Apellido: "+ alumnoEncontradoID.getApellido());
 //        System.out.println("    ");
 
-      //  mostrar WACHOS por DNI
-      
-//      Alumno alumnoEncontradoDNI=alumnoData.buscarAlumnoPorDni(32751482);
-//        if (alumnoEncontradoDNI!=null) {
-//        System.out.println("------------DATOS ALUMNO ENCONTRADO DNI-----------------");
-//        System.out.println("    ");        
-//        System.out.println("Nombre: "+ alumnoEncontradoDNI.getNombre());
-//        System.out.println("Apellido: "+ alumnoEncontradoDNI.getApellido());
-//        System.out.println("DNI: "+ alumnoEncontradoDNI.getDni());
-//        }else{
+
+        //  mostrar ALUMNOS por DNI
+//        Alumno alumnoEncontradoDNI = alumnoData.buscarAlumnoPorDni(32751482);
+//        if (alumnoEncontradoDNI != null) {
+//            System.out.println("------------DATOS ALUMNO ENCONTRADO DNI-----------------");
+//            System.out.println("    ");
+//            System.out.println("Nombre: " + alumnoEncontradoDNI.getNombre());
+//            System.out.println("Apellido: " + alumnoEncontradoDNI.getApellido());
+//            System.out.println("DNI: " + alumnoEncontradoDNI.getDni());
+//        } else {
 //            System.out.println("");
-//            System.out.println(" No encontrÃ© nada che por DNI...");
+//            System.out.println(" No encontré nada che por DNI...");
 //        }
-        
-       //  mostrar WACHOS
-      
-      
-       AlumnoData alumnosData= new AlumnoData();
-        List<Alumno> listaAlumnos = alumnosData.listaAlumnos();
 
-for (Alumno alumno : listaAlumnos) {
-    System.out.println(", Nombre: " + alumno.getNombre() + ", Apellido "+ alumno.getApellido()+" ID: " + alumno.getIdAlumno() + ", DNI: " + alumno.getDni()  );
-}
+//          mostrar LISTA ALUMNOS
+//       AlumnoData alumnosData= new AlumnoData();
+//        List<Alumno> listaAlumnos = alumnosData.listaAlumnos();
+//
+//      for (Alumno alumno : listaAlumnos) {
+//          System.out.println("Nombre: " + alumno.getNombre() + ", Apellido "+ alumno.getApellido()+" ID: " + alumno.getIdAlumno() + ", DNI: " + alumno.getDni());
+//}
 
-      
-      
+        Materia m1 = new Materia("Laboratorio 1", 2023, true);
+        MateriaData materiaData = new MateriaData();
+        materiaData.guardarMateria(m1);
     }
 }
