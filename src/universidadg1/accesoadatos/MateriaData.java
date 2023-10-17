@@ -22,21 +22,21 @@ public class MateriaData {
         this.con= Conexion.getConexion();
     }
     
-    public void guardarMateria(Materia mat){
+    public void guardarMateria(Materia materia){
         
         String sql ="INSERT INTO `materia`(`nombre`, `año`, `estado`)"
                 + "VALUES(?,?,?)";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, mat.getNombre());
-            ps.setInt(2, mat.getAnioMateria());
-            ps.setBoolean(3, mat.isActivo());
+            ps.setString(1, materia.getNombre());
+            ps.setInt(2, materia.getAnioMateria());
+            ps.setBoolean(3, materia.isActivo());
             ps.executeUpdate();
             
             ResultSet rs = ps.getGeneratedKeys();
             if(rs.next()){
-                mat.setIdMateria(1);
+                materia.setIdMateria(1);
                 JOptionPane.showMessageDialog(null, "Materia agregada");
             }
             
