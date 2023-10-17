@@ -77,10 +77,11 @@ public class UniversidadG1 {
 //----------------------------MATERIA DATA----------------------------------------------------------------------
         // Para guardar Materia
 
-        Materia m1 = new Materia("Laboratorio 1", 2023, true);
-        MateriaData materiaData = new MateriaData();
-        materiaData.guardarMateria(m1);
+//        Materia m1 = new Materia("Laboratorio 1", 2023, true);
+//        MateriaData materiaData = new MateriaData();
+//        materiaData.guardarMateria(m1);
         
+//      // Para modificar Materia
         
     }
 }
