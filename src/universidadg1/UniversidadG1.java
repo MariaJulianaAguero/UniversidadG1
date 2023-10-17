@@ -36,40 +36,40 @@ public class UniversidadG1 {
 
       //  MODIFICAR WACHOS
       
-      
+//      
 //      Alumno sebAlumno=new Alumno(1,32751482, "castro", "sebas", LocalDate.of(1987,7,1), true);
 //      AlumnoData alumnoData= new AlumnoData();
-      //alumnoData.modificarAlumno(sebAlumno);;
+//      alumnoData.modificarAlumno(sebAlumno);;
       
       
-            //  matar WACHOS
+            //  borrar WACHOS
  
      // alumnoData.borradoLogicoAlumno(1);
      
      
             //  mostrar WACHOS por ID
             
-        Alumno alumnoEncontradoID=alumnoData.buscarAlumnoPorId(1);
-        System.out.println("-------------DATOS ALUMNO ENCONTRADO ID-----------------");
-        System.out.println("    ");
-        System.out.println("DNI"+ alumnoEncontradoID.getDni()); 
-        System.out.println("Nombre: "+ alumnoEncontradoID.getNombre());
-        System.out.println("Apellido: "+ alumnoEncontradoID.getApellido());
-        System.out.println("    ");
+//        Alumno alumnoEncontradoID=alumnoData.buscarAlumnoPorId(1);
+//        System.out.println("-------------DATOS ALUMNO ENCONTRADO ID-----------------");
+//        System.out.println("    ");
+//        System.out.println("DNI"+ alumnoEncontradoID.getDni()); 
+//        System.out.println("Nombre: "+ alumnoEncontradoID.getNombre());
+//        System.out.println("Apellido: "+ alumnoEncontradoID.getApellido());
+//        System.out.println("    ");
 
       //  mostrar WACHOS por DNI
       
-      Alumno alumnoEncontradoDNI=alumnoData.buscarAlumnoPorDni(32751482);
-        if (alumnoEncontradoDNI!=null) {
-        System.out.println("------------DATOS ALUMNO ENCONTRADO DNI-----------------");
-        System.out.println("    ");        
-        System.out.println("Nombre: "+ alumnoEncontradoDNI.getNombre());
-        System.out.println("Apellido: "+ alumnoEncontradoDNI.getApellido());
-        System.out.println("DNI: "+ alumnoEncontradoDNI.getDni());
-        }else{
-            System.out.println("");
-            System.out.println(" No encontré nada che por DNI...");
-        }
+//      Alumno alumnoEncontradoDNI=alumnoData.buscarAlumnoPorDni(32751482);
+//        if (alumnoEncontradoDNI!=null) {
+//        System.out.println("------------DATOS ALUMNO ENCONTRADO DNI-----------------");
+//        System.out.println("    ");        
+//        System.out.println("Nombre: "+ alumnoEncontradoDNI.getNombre());
+//        System.out.println("Apellido: "+ alumnoEncontradoDNI.getApellido());
+//        System.out.println("DNI: "+ alumnoEncontradoDNI.getDni());
+//        }else{
+//            System.out.println("");
+//            System.out.println(" No encontré nada che por DNI...");
+//        }
         
        //  mostrar WACHOS
       
