@@ -74,6 +74,8 @@ public class UniversidadG1 {
 //      for (Alumno alumno : listaAlumnos) {
 //          System.out.println("Nombre: " + alumno.getNombre() + ", Apellido "+ alumno.getApellido()+" ID: " + alumno.getIdAlumno() + ", DNI: " + alumno.getDni());
 //}
+//----------------------------MATERIA DATA----------------------------------------------------------------------
+        // Para guardar Materia
 
         Materia m1 = new Materia("Laboratorio 1", 2023, true);
         MateriaData materiaData = new MateriaData();
