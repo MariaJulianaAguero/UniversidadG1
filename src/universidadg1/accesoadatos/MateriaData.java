@@ -24,25 +24,25 @@ public class MateriaData {
     
     public void guardarMateria(Materia materia){
         
-//        String sql ="INSERT INTO `materia`(`nombre`, `año`, `estado`)"
-//                + "VALUES(?,?,?)";
-//        
-//        try {
-//            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-//            ps.setString(1, materia.getNombre());
-//            ps.setInt(2, materia.getAnioMateria());
-//            ps.setBoolean(3, materia.isActivo());
-//            ps.executeUpdate();
-//            
-//            ResultSet rs = ps.getGeneratedKeys();
-//            if(rs.next()){
-//                materia.setIdMateria(1);
-//                JOptionPane.showMessageDialog(null, "Materia agregada");
-//            }
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(MateriaData.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        String sql ="INSERT INTO `materia`(`nombre`, `año`, `estado`)"
+                + "VALUES(?,?,?)";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, materia.getNombre());
+            ps.setInt(2, materia.getAnioMateria());
+            ps.setBoolean(3, materia.isActivo());
+            ps.executeUpdate();
+            
+            ResultSet rs = ps.getGeneratedKeys();
+            if(rs.next()){
+                materia.setIdMateria(1);
+                JOptionPane.showMessageDialog(null, "Materia agregada");
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en tabla Materia");
+        }
     }
     
     public void modificarMateria(Materia materia) {
