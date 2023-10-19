@@ -10,8 +10,10 @@ import java.time.LocalDate;
 import java.util.List;
 import universidadg1.accesoadatos.AlumnoData;
 import universidadg1.accesoadatos.Conexion;
+import universidadg1.accesoadatos.InscripcionData;
 import universidadg1.accesoadatos.MateriaData;
 import universidadg1.entidades.Alumno;
+import universidadg1.entidades.Inscripcion;
 import universidadg1.entidades.Materia;
 
 /**
@@ -82,6 +84,30 @@ public class UniversidadG1 {
 //        materiaData.guardarMateria(m1);
         
 //      // Para modificar Materia
+
+        //Para Buscar una materia
         
+        
+        
+        //Para mostrar una materia
+        
+        
+
+//--------------------------INSCRIBIR ALUMNO-----------------------------------------------------------------------------
+       //Para inscribir un alumno
+        AlumnoData ad = new AlumnoData();
+        MateriaData md=new MateriaData();
+        InscripcionData ind=new InscripcionData();
+        
+        Alumno gonza= ad.buscarAlumnoPorId(7);
+        Materia mat=md.buscarMateria(1);
+        Inscripcion insc=new Inscripcion(gonza, mat, 9);
+    
+// Probar los metodos sacando este   ind.guardarInscripcion(insc); 
+
+
+          //Actualizar nota
+        ind.actualizarNota(7, 1, 7);
+
     }
 }
