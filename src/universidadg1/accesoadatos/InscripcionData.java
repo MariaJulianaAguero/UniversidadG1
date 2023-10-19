@@ -80,5 +80,9 @@ public class InscripcionData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion");
         }
     }
+    
+    public List<Inscripcion> obtenerInscripciones(){
+        
+    }
 
 }
