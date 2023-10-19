@@ -94,7 +94,7 @@ public class UniversidadG1 {
         
 
 //--------------------------INSCRIBIR ALUMNO-----------------------------------------------------------------------------
-       //Para inscribir un alumno
+//---------------Para inscribir un alumno
         AlumnoData ad = new AlumnoData();
         MateriaData md=new MateriaData();
         InscripcionData ind=new InscripcionData();
@@ -104,13 +104,15 @@ public class UniversidadG1 {
         Inscripcion insc=new Inscripcion(gonza, mat, 9);
  
         //ind.guardarInscripcion(insc); 
- // Probar metodo sacando este?
+ //---------------- Probar este metodo sacando este?
  
           //Actualizar nota
         //ind.actualizarNota(7, 1, 7);
         
-        //borrar
-        ind.borrarInscripcionMateriaAlumno(7, 1);
+//-------------------borrar Inscripcion
+   //ind.borrarInscripcionMateriaAlumno(7, 1);
 
+
+//-------------------
     }
 }

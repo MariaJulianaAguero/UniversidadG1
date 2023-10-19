@@ -45,20 +45,12 @@ public class MateriaData {
 //        }
     }
     
-    public void actualizarNota(int idAlumno,int idMateria,double nota) {
-        
-        try {
-            String sql="UPDATE inscripcion SET nota = ? WHERE idAlumno = ? AND idMateria = ?";
-            
-            PreparedStatement ps = con.prepareStatement(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(MateriaData.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void modificarMateria(Materia materia) {
+        // Código para actualizar una materia en la base de datos
     }
     
     public void eliminarMateria(int idMateria) {
         // Código para marcar una materia como eliminada en la base de datos
-        
     }
     
     public Materia buscarMateria(int id) {
