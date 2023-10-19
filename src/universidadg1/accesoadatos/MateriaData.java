@@ -47,6 +47,22 @@ public class MateriaData {
     
     public void modificarMateria(Materia materia) {
         // CÃ³digo para actualizar una materia en la base de datos
+        try {
+            
+            String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ? WHERE idMateria = ?";
+            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, materia.getNombre());
+            ps.setInt(2, materia.getAnioMateria());
+            ps.setBoolean(3, materia.isActivo());
+            ps.setInt(4,materia.getIdMateria());
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Materia actualizada con exito");
+            
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en la tabla Materia!");
+        }
     }
     
     public void eliminarMateria(int idMateria) {

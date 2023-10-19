@@ -39,7 +39,7 @@ public class UniversidadG1 {
 //      
 //      Alumno sebAlumno=new Alumno(1,32751482, "castro", "sebas", LocalDate.of(1987,7,1), true);
 //      AlumnoData alumnoData= new AlumnoData();
-//      alumnoData.modificarAlumno(sebAlumno);;
+//      alumnoData.modificarAlumno(sebAlumno);
 
 
         //borrar ALUMNOS
@@ -79,12 +79,16 @@ public class UniversidadG1 {
 //----------------------------MATERIA DATA----------------------------------------------------------------------
         // Para guardar Materia
 
-//        Materia m1 = new Materia("Laboratorio 1", 2023, true);
-//        MateriaData materiaData = new MateriaData();
-//        materiaData.guardarMateria(m1);
+        Materia m1 = new Materia("asdasd", 2023, true);
+        MateriaData materiaData = new MateriaData();
+        materiaData.guardarMateria(m1);
         
 //      // Para modificar Materia
-
+        Materia ingSoft=new Materia("Ingenieria de Software", 2024, false);
+//      alumnoData.modificarAlumno(sebAlumno);
+        materiaData.modificarMateria(ingSoft);
+        
+//      alumnoData.modificarAlumno(sebAlumno);
         //Para Buscar una materia
         
         
