@@ -82,7 +82,19 @@ public class InscripcionData {
     }
     
     public List<Inscripcion> obtenerInscripciones(){
-        
+        ArrayList<Inscripcion>cursadas = new ArrayList<>();
+        String sql="SELECT * FROM inscripcion";
+        try{
+            PreparedStatement ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+                Inscripcion insc= new Inscripcion();
+                insc.setIdInscripcion(rs.getInt("idInscripcion"));
+                rs.getInt("IdMateria");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
