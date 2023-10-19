@@ -7,6 +7,8 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import universidadg1.entidades.Alumno;
+import universidadg1.entidades.Materia;
 
 /**
  *
@@ -15,6 +17,8 @@ import javax.swing.JOptionPane;
 public class InscripcionData {
 
     private Connection con = null;
+    private MateriaData md= new MateriaData();
+    private AlumnoData ad= new AlumnoData();
 
     public InscripcionData() {
         this.con = Conexion.getConexion();
@@ -90,11 +94,19 @@ public class InscripcionData {
             while(rs.next()){
                 Inscripcion insc= new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                rs.getInt("IdMateria");
+                Alumno alu= ad.buscarAlumnoPorId(rs.getInt("idAlumno"));
+                Materia mat= md.buscarMateria(rs.getInt("idMateria"));
+                insc.setAlumno(alu);
+                insc.setMateria(mat);
+                insc.setNota(rs.getDouble("nota"));
+                cursadas.add(insc);
+               
             }
+            ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion");
         }
+        return cursadas;
     }
 
 }
