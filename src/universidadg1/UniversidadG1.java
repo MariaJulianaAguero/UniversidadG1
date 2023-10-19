@@ -102,12 +102,14 @@ public class UniversidadG1 {
         Alumno gonza= ad.buscarAlumnoPorId(7);
         Materia mat=md.buscarMateria(1);
         Inscripcion insc=new Inscripcion(gonza, mat, 9);
-    
-// Probar los metodos sacando este   ind.guardarInscripcion(insc); 
-
-
+ 
+        //ind.guardarInscripcion(insc); 
+ // Probar metodo sacando este?
+ 
           //Actualizar nota
-        ind.actualizarNota(7, 1, 7);
+        //ind.actualizarNota(7, 1, 7);
+        
+        //
 
     }
 }

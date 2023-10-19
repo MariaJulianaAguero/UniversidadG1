@@ -58,6 +58,7 @@ public class MateriaData {
     
     public void eliminarMateria(int idMateria) {
         // Código para marcar una materia como eliminada en la base de datos
+        
     }
     
     public Materia buscarMateria(int id) {
