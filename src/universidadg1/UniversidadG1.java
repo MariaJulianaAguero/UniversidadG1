@@ -109,7 +109,8 @@ public class UniversidadG1 {
           //Actualizar nota
         //ind.actualizarNota(7, 1, 7);
         
-        //
+        //borrar
+        ind.borrarInscripcionMateriaAlumno(7, 1);
 
     }
 }
