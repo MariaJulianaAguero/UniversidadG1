@@ -108,5 +108,8 @@ public class InscripcionData {
         }
         return cursadas;
     }
+    public void mirarMateria(){
+        
+    }
 
 }
