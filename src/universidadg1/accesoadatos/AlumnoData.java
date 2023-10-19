@@ -146,10 +146,7 @@ public class AlumnoData {
         
         return alumno;
     }
-     
-     
-     
-        
+
    public Alumno buscarAlumnoPorDni(int dni) {
         Alumno alumno = null;
         String query = "SELECT * FROM alumno WHERE dni = ?";
@@ -223,17 +220,7 @@ public class AlumnoData {
         
         return listaAlumnos;
     }
-      
-          
-        
-        
-        
-        
-        
-        
-        
-        
-        
+     
 }
    
    
