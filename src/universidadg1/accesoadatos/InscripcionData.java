@@ -113,14 +113,35 @@ public class InscripcionData {
                 materias.add(materia);
                 
             }
+             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion");
         }
         return materias;
     }
     
-    public List<Materia> obtenerMateriasNOCursadas(int id){
-        
+    public List<Materia> obtenerMateriasNOCursadas(int idAlumno){
+        ArrayList<Materia> materias = new ArrayList<>();
+        String sql= "SELECT * FROM materia WHERE estado = 1 AND idMateria not in "
+                +"(SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
+        try{
+            PreparedStatement ps= con.prepareStatement (sql);
+            ps.setInt(1, idAlumno);
+            ResultSet rs= ps.executeQuery();
+            while(rs.next()){
+                Materia materia = new Materia();
+                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnioMateria(rs.getInt("año"));
+                materias.add(materia);
+                
+            }
+        ps.close();
+    }   catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion");
+            
+        }
+         return materias;
     }
 
     public void borrarInscripcionMateriaAlumno(int idAlumno,int idMateria){
