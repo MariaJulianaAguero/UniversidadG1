@@ -97,9 +97,7 @@ public class MateriaData {
         String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
         
     }
-    
-    
-    
+
     public List<Materia> listarMaterias() {
         // Codigo para obtener una lista de todas las materias activas en la base de datos
         List<Materia> listaMaterias = new ArrayList<>();
