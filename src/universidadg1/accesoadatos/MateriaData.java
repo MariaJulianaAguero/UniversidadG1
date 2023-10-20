@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package universidadg1.accesoadatos;
 
 import java.sql.*;
@@ -12,10 +9,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import universidadg1.entidades.Materia;
 
-/**
- *
- * @author Gonza
- */
+
 public class MateriaData {
     private Connection con=null;
 
