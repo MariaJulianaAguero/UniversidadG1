@@ -19,7 +19,7 @@ public class MateriaData {
     
     public void guardarMateria(Materia materia){
         
-        String sql ="INSERT INTO `materia`(`nombre`, `a�o`, `estado`)"
+        String sql ="INSERT INTO `materia`(`nombre`, `año`, `estado`)"
                 + "VALUES(?,?,?)";
         
         try {
@@ -41,8 +41,8 @@ public class MateriaData {
     }
     
     public Materia buscarMateria(int id) {
-        // Código para buscar una materia por ID en la base de datos
-        String sql ="SELECT nombre, a�o, estado FROM materia WHERE idMateria = ? AND estado = 1";
+        // CÃ³digo para buscar una materia por ID en la base de datos
+        String sql ="SELECT nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
         Materia materia = null;
         
         try {
@@ -53,7 +53,7 @@ public class MateriaData {
                 materia = new Materia();
                 materia.setIdMateria(id);
                 materia.setNombre(rs.getString("nombre"));
-                materia.setAnioMateria(rs.getInt("a�o"));
+                materia.setAnioMateria(rs.getInt("año"));
                 materia.setActivo(true);
             }else{
                 JOptionPane.showMessageDialog(null, "No existe una materia con ese ID");
@@ -67,10 +67,10 @@ public class MateriaData {
     }
     
     public void modificarMateria(Materia materia) {
-        // Código para actualizar una materia en la base de datos
+        // CÃ³digo para actualizar una materia en la base de datos
         try {
             
-            String sql = "UPDATE materia SET nombre = ?, a�o = ?, estado = ? WHERE idMateria = ?";
+            String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ? WHERE idMateria = ?";
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, materia.getNombre());
             ps.setInt(2, materia.getAnioMateria());
@@ -86,19 +86,51 @@ public class MateriaData {
         }
     }
     
-    public void eliminarMateria(int idMateria) {
-        // Código para marcar una materia como eliminada en la base de datos
-        String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
+   public void eliminarMateria(int idMateria) {
+        String query = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
         
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement(query);
+            preparedStatement.setInt(1, idMateria);
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "materia eliminada logicamente");
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar la materia", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        }
     }
+   public List<Materia> obtenerMateriasActivas() {
+        List<Materia> materiasActivas = new ArrayList<>();
+        String query = "SELECT * FROM materia WHERE estado = 1";
+        
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            while (resultSet.next()) {
+                int idMateria = resultSet.getInt("idMateria");
+                String nombre = resultSet.getString("nombre");
+                int año = resultSet.getInt("año");
+                boolean activo = resultSet.getBoolean("estado");
 
-    public List<Materia> listarMaterias() {
-        // Codigo para obtener una lista de todas las materias activas en la base de datos
-        List<Materia> listaMaterias = new ArrayList<>();
+                Materia materia = new Materia();
+                materia.setIdMateria(idMateria);
+                materia.setNombre(nombre);
+                materia.setAnioMateria(año);
+                materia.setActivo(activo);
+                
+                materiasActivas.add(materia);
+            }            
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "No se pudo mostrar la losta, fijate que onda", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
-        PreparedStatement ps=
-        return null;
-        
+        return materiasActivas;
     }
     
 }
