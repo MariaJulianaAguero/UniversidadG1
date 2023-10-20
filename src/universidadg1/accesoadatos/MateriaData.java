@@ -46,6 +46,32 @@ public class MateriaData {
         }
     }
     
+    public Materia buscarMateria(int id) {
+        // CÃ³digo para buscar una materia por ID en la base de datos
+        String sql ="SELECT nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
+        Materia materia = null;
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);          
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                materia = new Materia();
+                materia.setIdMateria(id);
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnioMateria(rs.getInt("año"));
+                materia.setActivo(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "No existe una materia con ese ID");
+            }
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en tabla Materia");
+        }
+        return materia;
+    }
+    
     public void modificarMateria(Materia materia) {
         // CÃ³digo para actualizar una materia en la base de datos
         try {
@@ -72,31 +98,7 @@ public class MateriaData {
         
     }
     
-    public Materia buscarMateria(int id) {
-        // CÃ³digo para buscar una materia por ID en la base de datos
-        String sql ="SELECT nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
-        Materia materia = null;
-        
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);          
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                materia = new Materia();
-                materia.setIdMateria(id);
-                materia.setNombre(rs.getString("nombre"));
-                materia.setAnioMateria(rs.getInt("año"));
-                materia.setActivo(true);
-            }else{
-                JOptionPane.showMessageDialog(null, "No existe una materia con ese ID");
-            }
-            ps.close();
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en tabla Materia");
-        }
-        return materia;
-    }
+    
     
     public List<Materia> listarMaterias() {
         // Codigo para obtener una lista de todas las materias activas en la base de datos
