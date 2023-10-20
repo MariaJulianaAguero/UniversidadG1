@@ -66,7 +66,7 @@ public class UniversidadG1 {
 //            System.out.println("DNI: " + alumnoEncontradoDNI.getDni());
 //        } else {
 //            System.out.println("");
-//            System.out.println(" No encontr� nada che por DNI...");
+//            System.out.println(" No encontré nada che por DNI...");
 //        }
 
 //          mostrar LISTA ALUMNOS
@@ -89,13 +89,34 @@ public class UniversidadG1 {
         materiaData.modificarMateria(ingSoft);
         
 //      alumnoData.modificarAlumno(sebAlumno);
+
+        
         //Para Buscar una materia
         
+        //        MateriaData data= new MateriaData();
+//        Materia materiaEncontrada=data.buscarMateriaPorId(2);
+//        if(materiaEncontrada!=null){
+//            System.out.println("Nombre: "+ materiaEncontrada.getNombre());
+//        }else{
+//            System.out.println("no se encntró naranja");
+//        }
         
+     
         
-        //Para mostrar una materia
-        
-        
+       // mostrar lista de materia
+
+List<Materia> materiasActivas= materiaData.obtenerMateriasActivas();
+
+   for (Materia materia : materiasActivas) {
+    System.out.println("ID: " + materia.getIdMateria() + ", Nombre: " + materia.getNombre() + ", Año: " + materia.getAnioMateria());
+
+//para eliminado logico de materia
+
+//materiaData.eliminarMateria(1);
+
+
+    }
+} 
 
 //--------------------------INSCRIBIR ALUMNO-----------------------------------------------------------------------------
 //---------------Para inscribir un alumno
