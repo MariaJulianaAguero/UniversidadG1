@@ -98,7 +98,7 @@ public class UniversidadG1 {
 //        if(materiaEncontrada!=null){
 //            System.out.println("Nombre: "+ materiaEncontrada.getNombre());
 //        }else{
-//            System.out.println("no se encntró naranja");
+//            System.out.println("no se encntro naranja");
 //        }
         
      

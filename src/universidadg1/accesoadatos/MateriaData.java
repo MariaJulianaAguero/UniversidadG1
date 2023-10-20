@@ -5,6 +5,7 @@
 package universidadg1.accesoadatos;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -67,6 +68,8 @@ public class MateriaData {
     
     public void eliminarMateria(int idMateria) {
         // Código para marcar una materia como eliminada en la base de datos
+        String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
+        
     }
     
     public Materia buscarMateria(int id) {
@@ -96,9 +99,12 @@ public class MateriaData {
     }
     
     public List<Materia> listarMaterias() {
-        // Código para obtener una lista de todas las materias activas en la base de datos
+        // Codigo para obtener una lista de todas las materias activas en la base de datos
+        List<Materia> listaMaterias = new ArrayList<>();
+        
+        PreparedStatement ps=
         return null;
-        // Código para obtener una lista de todas las materias activas en la base de datos
+        
     }
     
 }
