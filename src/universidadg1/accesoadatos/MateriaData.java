@@ -112,13 +112,13 @@ public class MateriaData {
             while (resultSet.next()) {
                 int idMateria = resultSet.getInt("idMateria");
                 String nombre = resultSet.getString("nombre");
-                int aÃ±o = resultSet.getInt("aÃ±o");
+                int año = resultSet.getInt("año");
                 boolean activo = resultSet.getBoolean("estado");
 
                 Materia materia = new Materia();
                 materia.setIdMateria(idMateria);
                 materia.setNombre(nombre);
-                materia.setAnioMateria(aÃ±o);
+                materia.setAnioMateria(año);
                 materia.setActivo(activo);
                 
                 materiasActivas.add(materia);
