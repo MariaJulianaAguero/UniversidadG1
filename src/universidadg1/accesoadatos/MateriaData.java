@@ -19,7 +19,7 @@ public class MateriaData {
     
     public void guardarMateria(Materia materia){
         
-        String sql ="INSERT INTO `materia`(`nombre`, `año`, `estado`)"
+        String sql ="INSERT INTO `materia`(`nombre`, `a�o`, `estado`)"
                 + "VALUES(?,?,?)";
         
         try {
@@ -70,7 +70,7 @@ public class MateriaData {
         // CÃ³digo para actualizar una materia en la base de datos
         try {
             
-            String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ? WHERE idMateria = ?";
+            String sql = "UPDATE materia SET nombre = ?, a�o = ?, estado = ? WHERE idMateria = ?";
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, materia.getNombre());
             ps.setInt(2, materia.getAnioMateria());

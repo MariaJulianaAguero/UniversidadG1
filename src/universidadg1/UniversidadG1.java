@@ -24,31 +24,33 @@ public class UniversidadG1 {
         Connection con = Conexion.getConexion();
 
         //AGREGAR WACHOS
-        Alumno a1 = new Alumno(12351777, "paredes", "sandra", LocalDate.of(1996, 7, 21), true);
-        Alumno a2 = new Alumno(66651777, "gomez", "sandra", LocalDate.of(1997, 3, 6), true);
-        AlumnoData alumnoData = new AlumnoData();
-//      alumnoData.guardarAlumno(a1);
-//      alumnoData.guardarAlumno(a2);
+//        Alumno a1 = new Alumno(12351777, "paredes", "sandra", LocalDate.of(1996, 7, 21), true);
+//        Alumno a2 = new Alumno(66651777, "gomez", "sandra", LocalDate.of(1997, 3, 6), true);
+//        AlumnoData alumnoData = new AlumnoData();
+//        alumnoData.guardarAlumno(a1);
+//        alumnoData.guardarAlumno(a2);
 
 ////////MODIFICAR ALUMNOS
 //      
-//      Alumno sebAlumno=new Alumno(1,32751482, "castro", "sebas", LocalDate.of(1987,7,1), true);
-//      AlumnoData alumnoData= new AlumnoData();
-//      alumnoData.modificarAlumno(sebAlumno);
+//       Alumno sebAlumno=new Alumno(1,32751482, "castro", "sebas", LocalDate.of(1987,7,1), true);
+//       AlumnoData alumnoData= new AlumnoData();
+//       alumnoData.modificarAlumno(sebAlumno);
 
 //////////borrar ALUMNOS
         // alumnoData.borradoLogicoAlumno(1);
         
 //////////mostrar ALUMNOS por ID
-       Alumno alumnoEncontradoID=alumnoData.buscarAlumnoPor(1);
-       System.out.println("-------------DATOS ALUMNO ENCONTRADO ID-----------------");
-       System.out.println("    ");
-       System.out.println("DNI"+ alumnoEncontradoID.getDni()); 
-       System.out.println("Nombre: "+ alumnoEncontradoID.getNombre());
-       System.out.println("Apellido: "+ alumnoEncontradoID.getApellido());
-       System.out.println("    ");
+//       AlumnoData alumnoData = new AlumnoData();
+//       Alumno alumnoEncontradoID=alumnoData.buscarAlumnoPor(1);
+//       System.out.println("-------------DATOS ALUMNO ENCONTRADO ID-----------------");
+//       System.out.println("    ");
+//       System.out.println("DNI"+ alumnoEncontradoID.getDni()); 
+//       System.out.println("Nombre: "+ alumnoEncontradoID.getNombre());
+//       System.out.println("Apellido: "+ alumnoEncontradoID.getApellido());
+//       System.out.println("    ");
 
 //////////mostrar ALUMNOS por DNI
+//       AlumnoData alumnoData = new AlumnoData();
 //       Alumno alumnoEncontradoDNI = alumnoData.buscarAlumnoPorDni(32751482);
 //        if (alumnoEncontradoDNI != null) {
 //            System.out.println("------------DATOS ALUMNO ENCONTRADO DNI-----------------");
@@ -70,16 +72,14 @@ public class UniversidadG1 {
 //       }
 //----------------------------MATERIA DATA----------------------------------------------------------------------
 //////////Para guardar Materia
-//        Materia m1 = new Materia("asdasd", 2023, true);
+//        Materia m1 = new Materia("IngSoftware", 2023, true);
 //        MateriaData materiaData = new MateriaData();
 //        materiaData.guardarMateria(m1);
-//
-//////////Para modificar Materia
-//        Materia ingSoft = new Materia("Ingenieria de Software", 2024, false);
-//        alumnoData.modificarAlumno(sebAlumno);
-//        materiaData.modificarMateria(ingSoft);
 
-//      alumnoData.modificarAlumno(sebAlumno);
+//////////Para modificar Materia
+//        Materia ingSoft = new Materia(12,"Ingenieria de Software", 2024, true);
+//        MateriaData materiaData = new MateriaData();
+//        materiaData.modificarMateria(ingSoft);
 
 //////////Para Buscar una materia
 //        MateriaData data= new MateriaData();
@@ -108,7 +108,7 @@ public class UniversidadG1 {
 //    MateriaData md = new MateriaData();
 //    InscripcionData ind = new InscripcionData();
 //
-//    Alumno al = ad.buscarAlumnoPorId(8);
+//    Alumno al = ad.buscarAlumnoPor(8);
 //    Materia mat = md.buscarMateria(2);
 //    Inscripcion insc = new Inscripcion(al, mat, 10);
 //
@@ -116,10 +116,12 @@ public class UniversidadG1 {
 //    ---------------- Probar este metodo sacando este arriba
 
 //////Actualizar nota
+//    InscripcionData ind = new InscripcionData();
 //    ind.actualizarNota(7, 1, 7);
 
 //////borrar Inscripcion
-//    ind.borrarInscripcionMateriaAlumno(7, 1);
+//      InscripcionData ind = new InscripcionData();
+//      ind.borrarInscripcionMateriaAlumno(7, 1);
 
 //////Obtener alumnosxMateria
 //    InscripcionData ind = new InscripcionData();
