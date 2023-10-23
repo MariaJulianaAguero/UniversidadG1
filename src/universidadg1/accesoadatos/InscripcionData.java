@@ -56,7 +56,7 @@ public class InscripcionData {
             while(rs.next()){
                 Inscripcion insc= new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                Alumno alu= ad.buscarAlumnoPorId(rs.getInt("idAlumno"));
+                Alumno alu= ad.buscarAlumnoPor(rs.getInt("idAlumno"));
                 Materia mat= md.buscarMateria(rs.getInt("idMateria"));
                 insc.setAlumno(alu);
                 insc.setMateria(mat);
@@ -81,7 +81,7 @@ public class InscripcionData {
             while(rs.next()){
                 Inscripcion insc= new Inscripcion();
                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                Alumno alu= ad.buscarAlumnoPorId(rs.getInt("idAlumno"));
+                Alumno alu= ad.buscarAlumnoPor(rs.getInt("idAlumno"));
                 Materia mat= md.buscarMateria(rs.getInt("idMateria"));
                 insc.setAlumno(alu);
                 insc.setMateria(mat);

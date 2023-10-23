@@ -40,13 +40,13 @@ public class UniversidadG1 {
         // alumnoData.borradoLogicoAlumno(1);
         
 //////////mostrar ALUMNOS por ID
-//       Alumno alumnoEncontradoID=alumnoData.buscarAlumnoPorId(1);
-//       System.out.println("-------------DATOS ALUMNO ENCONTRADO ID-----------------");
-//       System.out.println("    ");
-//       System.out.println("DNI"+ alumnoEncontradoID.getDni()); 
-//       System.out.println("Nombre: "+ alumnoEncontradoID.getNombre());
-//       System.out.println("Apellido: "+ alumnoEncontradoID.getApellido());
-//       System.out.println("    ");
+       Alumno alumnoEncontradoID=alumnoData.buscarAlumnoPor(1);
+       System.out.println("-------------DATOS ALUMNO ENCONTRADO ID-----------------");
+       System.out.println("    ");
+       System.out.println("DNI"+ alumnoEncontradoID.getDni()); 
+       System.out.println("Nombre: "+ alumnoEncontradoID.getNombre());
+       System.out.println("Apellido: "+ alumnoEncontradoID.getApellido());
+       System.out.println("    ");
 
 //////////mostrar ALUMNOS por DNI
 //       Alumno alumnoEncontradoDNI = alumnoData.buscarAlumnoPorDni(32751482);
