@@ -42,7 +42,7 @@ public class MateriaData {
     
     public Materia buscarMateria(int id) {
         // CÃ³digo para buscar una materia por ID en la base de datos
-        String sql ="SELECT nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
+        String sql ="SELECT nombre, a�o, estado FROM materia WHERE idMateria = ? AND estado = 1";
         Materia materia = null;
         
         try {
@@ -53,7 +53,7 @@ public class MateriaData {
                 materia = new Materia();
                 materia.setIdMateria(id);
                 materia.setNombre(rs.getString("nombre"));
-                materia.setAnioMateria(rs.getInt("año"));
+                materia.setAnioMateria(rs.getInt("a�o"));
                 materia.setActivo(true);
             }else{
                 JOptionPane.showMessageDialog(null, "No existe una materia con ese ID");
