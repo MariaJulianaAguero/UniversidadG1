@@ -60,34 +60,31 @@ public class AlumnoData {
              JOptionPane.showMessageDialog(null, "error al acceder a la tabla alumno");
     }}
     
-    public Alumno buscarAlumnoPorId(int idAlumno) {
-        Alumno alumno = null;
-        String query = "SELECT * FROM alumno WHERE idAlumno = ?";
-        
+    public Alumno buscarAlumnoPor(int id) {
+       
+        String sql = "SELECT * FROM alumno WHERE idAlumno = ? AND estado = 1";
+         Alumno alumno = null;
         try {
-            PreparedStatement preparedStatement = con.prepareStatement(query);
-            preparedStatement.setInt(1, idAlumno);
-            
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                int dni = resultSet.getInt("dni");
-                String apellido = resultSet.getString("apellido");
-                String nombre = resultSet.getString("nombre");
-                java.sql.Date fechaNacimiento = resultSet.getDate("fechaNacimiento");
-                boolean estado = resultSet.getBoolean("estado");
-
-          
-                alumno = new Alumno(dni, apellido, nombre, fechaNacimiento.toLocalDate(), estado);
-                alumno.setIdAlumno(idAlumno);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                
+                alumno = new Alumno();
+                alumno.setIdAlumno(id);
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setActivo(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "No existe un alumno con ese ID");
             }
-            
-            resultSet.close();
-            preparedStatement.close();
+            ps.close();
+
         } catch (SQLException e) {
-            e.printStackTrace();
-           
-        }
-        
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno");
+        }  
         return alumno;
     }
     
