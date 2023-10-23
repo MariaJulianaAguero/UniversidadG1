@@ -89,13 +89,16 @@ public class UniversidadG1 {
 //        }else{
 //            System.out.println("no se encntro naranja");
 //        }
+
 //////////mostrar lista de materia
 //        MateriaData matDat= new MateriaData();
 //        List<Materia> materiasActivas = matDat.obtenerMateriasActivas();
 //
 //        for (Materia materia : materiasActivas) {
-//            System.out.println("ID: " + materia.getIdMateria() + ", Nombre: " + materia.getNombre() + ", año: " + materia.getAnioMateria());
+//            System.out.println("ID: " + materia.getIdMateria() 
+//            +  ", Nombre: " + materia.getNombre() + ", año: " + materia.getAnioMateria());
 //        }
+
 //////////para eliminado logico de materia
 //        materiaData.eliminarMateria(1);
 
@@ -105,9 +108,9 @@ public class UniversidadG1 {
 //    MateriaData md = new MateriaData();
 //    InscripcionData ind = new InscripcionData();
 //
-//    Alumno al = ad.buscarAlumnoPorId(3);
+//    Alumno al = ad.buscarAlumnoPorId(8);
 //    Materia mat = md.buscarMateria(2);
-//    Inscripcion insc = new Inscripcion(al, mat, 7);
+//    Inscripcion insc = new Inscripcion(al, mat, 10);
 //
 //    ind.guardarInscripcion(insc); 
 //    ---------------- Probar este metodo sacando este arriba
@@ -119,14 +122,14 @@ public class UniversidadG1 {
 //    ind.borrarInscripcionMateriaAlumno(7, 1);
 
 //////Obtener alumnosxMateria
-//    InscripcionData ind = new InscripcionData();
-//    int idMateria = 1;
-//    List<Alumno> alumnos = ind.obtenerAlumnosXMateria(idMateria);
-//    for(Alumno alumno:alumnos){
-//        System.out.println("Id del Alumno: " + alumno.getIdAlumno());
-//        System.out.println("Nombre del alumno: " + alumno.getNombre());
-//        System.out.println("-----------------");
-//    }
+    InscripcionData ind = new InscripcionData();
+    int idMateria = 1;
+    List<Alumno> alumnos = ind.obtenerAlumnosXMateria(idMateria);
+    for(Alumno alumno:alumnos){
+        System.out.println("Id del Alumno: " + alumno.getIdAlumno());
+        System.out.println("Nombre del alumno: " + alumno.getNombre());
+        System.out.println("-----------------");
+    }
 
 //-------------------------
 
