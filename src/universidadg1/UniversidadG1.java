@@ -124,14 +124,14 @@ public class UniversidadG1 {
 //      ind.borrarInscripcionMateriaAlumno(7, 1);
 
 //////Obtener alumnosxMateria
-//    InscripcionData ind = new InscripcionData();
-//    int idMateria = 1;
-//    List<Alumno> alumnos = ind.obtenerAlumnosXMateria(idMateria);
-//    for(Alumno alumno:alumnos){
-//        System.out.println("Id del Alumno: " + alumno.getIdAlumno());
-//        System.out.println("Nombre del alumno: " + alumno.getNombre());
-//        System.out.println("-----------------");
-//    }
+    InscripcionData ind = new InscripcionData();
+    int idMateria = 1;
+    List<Alumno> alumnos = ind.obtenerAlumnosXMateria(idMateria);
+    for(Alumno alumno:alumnos){
+        System.out.println("Id del Alumno: " + alumno.getIdAlumno());
+        System.out.println("Nombre del alumno: " + alumno.getNombre());
+        System.out.println("-----------------");
+    }
 
 //-------------------------
 
