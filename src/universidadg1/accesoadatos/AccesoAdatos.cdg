@@ -17,7 +17,7 @@
         <Method name="getConnection" returnType="Connection" visibility="public" isStatic="true"/>
       </Methods>
     </Class>
-    <Class name="AlumnoData" package="" visibility="public" xPosition="18.0" yPosition="206.0">
+    <Class name="AlumnoData" package="" visibility="public" xPosition="13.0" yPosition="155.0">
       <Fields>
         <Field name="con" type="Connection" visibility="private"/>
       </Fields>
@@ -105,9 +105,9 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="alumno" source="InscripcionData" target="AlumnoData" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="materia" source="InscripcionData" target="MateriaData" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <UseRelation name="" source="MateriaData" target="Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation name="" source="AlumnoData" target="Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="alumno" source="InscripcionData" target="AlumnoData" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="MateriaData" target="Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="materia" source="InscripcionData" target="MateriaData" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

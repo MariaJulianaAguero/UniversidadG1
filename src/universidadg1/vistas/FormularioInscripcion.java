@@ -50,6 +50,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        rinsc = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -68,6 +69,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setResizable(true);
 
         jPanel1.setBackground(new java.awt.Color(208, 208, 250));
 
@@ -110,6 +112,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         jSeparator2.setForeground(new java.awt.Color(102, 102, 102));
 
+        rinsc.add(jrMateriaInscripta);
         jrMateriaInscripta.setText("Materias Inscriptas");
         jrMateriaInscripta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +120,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        rinsc.add(jrMateriasNOinsc);
         jrMateriasNOinsc.setText("Materias NO inscriptas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -238,14 +242,14 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         }
     }
     
-//    private void cargarDatosNoInscriptas(){
-//        borrarFilaTabla();
-//        Alumno selec = (Alumno) jcAlumno.getSelectedItem();
-//        listaMat = inscData.obtenerMateriasNOCursadas(selec.getIdAlumno());
-//        for(Materia m: listaMat){
-//            tablaMateria.addRow (new Object[] {m.getIdMateria(),m.getNombre(),m.getAnioMateria()});
-//        }
-//    }   
+    private void cargarDatosNoInscriptas(){
+        borrarFilaTabla();
+        Alumno selec = (Alumno) jcAlumno.getSelectedItem();
+        listaMat = inscData.obtenerMateriasNOCursadas(selec.getIdAlumno());
+        for(Materia m: listaMat){
+            tablaMateria.addRow (new Object[] {m.getIdMateria(),m.getNombre(),m.getAnioMateria()});
+        }
+    }   
     private void cargarDatosInscriptas(){
         borrarFilaTabla();
         Alumno selec = (Alumno) jcAlumno.getSelectedItem();
@@ -270,5 +274,6 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jrMateriaInscripta;
     private javax.swing.JRadioButton jrMateriasNOinsc;
     private javax.swing.JTable jtMaterias;
+    private javax.swing.ButtonGroup rinsc;
     // End of variables declaration//GEN-END:variables
 }

@@ -51,7 +51,7 @@
         <Method name="untitledMethod" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Inscripcion" package="" visibility="public" xPosition="591.0" yPosition="4.0">
+    <Class name="Inscripcion" package="" visibility="public" xPosition="597.0" yPosition="46.0">
       <Fields>
         <Field name="idInscripcion" type="int" visibility="private"/>
         <Field name="alumno" type="Alumno" visibility="private"/>
@@ -145,7 +145,7 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="alumno" source="Inscripcion" target="Alumno" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
     <HasRelation name="materia" source="Inscripcion" target="Materia" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="alumno" source="Inscripcion" target="Alumno" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

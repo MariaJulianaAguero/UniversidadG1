@@ -147,7 +147,8 @@ public class MenuView extends javax.swing.JFrame {
             .addComponent(escritorio)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(622, 500));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSalirMouseClicked
