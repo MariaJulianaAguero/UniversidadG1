@@ -54,11 +54,11 @@ public class MenuView extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 606, Short.MAX_VALUE)
+            .addGap(0, 667, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGap(0, 539, Short.MAX_VALUE)
         );
 
         jmAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadg1/recursos/Alumno.png"))); // NOI18N
@@ -147,7 +147,7 @@ public class MenuView extends javax.swing.JFrame {
             .addComponent(escritorio)
         );
 
-        setSize(new java.awt.Dimension(622, 500));
+        setSize(new java.awt.Dimension(683, 586));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

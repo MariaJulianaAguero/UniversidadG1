@@ -79,15 +79,15 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jLabel1.setText("Formulario de Inscripcion");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 21, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jLabel2.setText("Seleccione un Alumno");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 95, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jLabel3.setText("Listado de Materias");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 159, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         jbInscribirAlumno.setText("Inscribir");
         jbInscribirAlumno.setEnabled(false);
@@ -96,7 +96,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 jbInscribirAlumnoActionPerformed(evt);
             }
         });
-        jPanel1.add(jbInscribirAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 441, -1, -1));
+        jPanel1.add(jbInscribirAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
 
         jbAnularInscripcion.setText("Anular Inscripcion");
         jbAnularInscripcion.setEnabled(false);
@@ -105,7 +105,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 jbAnularInscripcionActionPerformed(evt);
             }
         });
-        jPanel1.add(jbAnularInscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 441, -1, -1));
+        jPanel1.add(jbAnularInscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, -1));
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +113,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 441, -1, -1));
+        jPanel1.add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, -1));
 
         jtMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,15 +128,15 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtMaterias);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 273, 350, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 350, 150));
 
-        jPanel1.add(jcAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 93, 190, -1));
+        jPanel1.add(jcAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 190, -1));
 
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 133, 350, 20));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 350, 20));
 
         jSeparator2.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 55, 350, 20));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 350, 20));
 
         rinsc.add(jrMateriaInscripta);
         jrMateriaInscripta.setText("Materias Inscriptas");
@@ -145,7 +145,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 jrMateriaInscriptaActionPerformed(evt);
             }
         });
-        jPanel1.add(jrMateriaInscripta, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 193, -1, -1));
+        jPanel1.add(jrMateriaInscripta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
         rinsc.add(jrMateriasNOinsc);
         jrMateriasNOinsc.setText("Materias NO inscriptas");
@@ -154,9 +154,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 jrMateriasNOinscActionPerformed(evt);
             }
         });
-        jPanel1.add(jrMateriasNOinsc, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 193, -1, -1));
+        jPanel1.add(jrMateriasNOinsc, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 500));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
