@@ -51,7 +51,7 @@ public class AlumnoData {
         ResultSet rs =preparedStatement.getGeneratedKeys();
         if(rs.next()){
             alumno.setIdAlumno(rs.getInt(1));
-             JOptionPane.showMessageDialog(null, "Se agregó el alumno");
+             JOptionPane.showMessageDialog(null, "Se agrego el alumno");
         }
         
         preparedStatement.close();

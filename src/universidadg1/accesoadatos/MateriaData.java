@@ -42,7 +42,7 @@ public class MateriaData {
     
     public Materia buscarMateria(int id) {
         // CÃƒÂ³digo para buscar una materia por ID en la base de datos
-        String sql ="SELECT nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
+        String sql ="SELECT nombre, año, estado FROM materia WHERE idMateria = ?";
         Materia materia = null;
         
         try {
@@ -61,7 +61,7 @@ public class MateriaData {
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en tabla Materia");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Materia");
         }
         return materia;
     }
@@ -93,7 +93,7 @@ public class MateriaData {
             PreparedStatement preparedStatement = con.prepareStatement(query);
             preparedStatement.setInt(1, idMateria);
             preparedStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "materia eliminada logicamente");
+            
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();

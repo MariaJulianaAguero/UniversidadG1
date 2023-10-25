@@ -15,8 +15,10 @@ import universidadg1.entidades.Materia;
  * @author Gonza
  */
 public class FormularioMateria extends javax.swing.JInternalFrame {
-    private MateriaData matData= new MateriaData();
-    private Materia materiaActual =null;
+
+    private MateriaData matData = new MateriaData();
+    private Materia materiaActual = null;
+
     /**
      * Creates new form FormularioMateria
      */
@@ -81,6 +83,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         });
 
         jbNuevoMateria.setText("Nuevo");
+        jbNuevoMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoMateriaActionPerformed(evt);
+            }
+        });
 
         jbEliminarMateria.setText("Eliminar");
         jbEliminarMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +109,8 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                 jbSalirActionPerformed(evt);
             }
         });
+
+        jtEstado.setText("Activo");
 
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
 
@@ -206,6 +215,16 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbEliminarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarMateriaActionPerformed
         // TODO add your handling code here:
+        try {
+            Integer idMateria = Integer.parseInt(jtCodigo.getText());
+            // Llama a tu método para eliminar la materia
+            matData.eliminarMateria(idMateria);
+            JOptionPane.showMessageDialog(this, "Materia eliminada con éxito");
+            // Limpia los campos después de la eliminación
+            limpiarCampos();
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido");
+        }
     }//GEN-LAST:event_jbEliminarMateriaActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -215,7 +234,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void jbBuscarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarMateriaActionPerformed
         // TODO add your handling code here:
-        
+
         try {
             Integer idMateria = Integer.parseInt(jtCodigo.getText());
             materiaActual = matData.buscarMateria(idMateria);
@@ -227,7 +246,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Ingrese un numero valido");
-            limpiarCampos();
+//            limpiarCampos();
         }
     }//GEN-LAST:event_jbBuscarMateriaActionPerformed
 
@@ -235,26 +254,29 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         try {
             String nombre = jtNombre.getText();
-            Integer anio= Integer.parseInt(jtAnio.getText());
+            Integer anio = Integer.parseInt(jtAnio.getText());
             boolean estado = jtEstado.isSelected();
-            
-            Materia nuevaMateria = new Materia(nombre,anio,estado);
+
+            Materia nuevaMateria = new Materia(nombre, anio, estado);
             matData.guardarMateria(nuevaMateria);
-            
-            JOptionPane.showMessageDialog(this, "Materia guardada con exito");
-            return;
+            limpiarCampos();
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this, "Ingrese un numero valido");
-            
-        } 
+
+        }
     }//GEN-LAST:event_jbGuardarMateriaActionPerformed
 
-    private void limpiarCampos(){
+    private void jbNuevoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoMateriaActionPerformed
+        // TODO add your handling code here:
+        limpiarCampos();
+    }//GEN-LAST:event_jbNuevoMateriaActionPerformed
+
+    private void limpiarCampos() {
         jtCodigo.setText("");
         jtNombre.setText("");
         jtAnio.setText("");
         jtEstado.setText("");
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
