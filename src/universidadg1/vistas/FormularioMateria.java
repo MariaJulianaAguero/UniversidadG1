@@ -97,6 +97,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         });
 
         jbGuardarMateria.setText("Guardar");
+        jbGuardarMateria.setEnabled(false);
         jbGuardarMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbGuardarMateriaActionPerformed(evt);
@@ -270,6 +271,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         limpiarCampos();
         jtCodigo.setEnabled(false);
+        jbGuardarMateria.setEnabled(true);
     }//GEN-LAST:event_jbNuevoMateriaActionPerformed
 
     private void limpiarCampos() {
