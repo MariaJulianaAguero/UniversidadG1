@@ -4,12 +4,14 @@
  */
 package universidadg1.vistas;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Gonza
  */
 public class FormularioNotas extends javax.swing.JInternalFrame {
-
+private DefaultTableModel modelo;
     /**
      * Creates new form FormularioNotas
      */
@@ -32,7 +34,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jcElegirAlumnoNotas = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtNotas = new javax.swing.JTable();
         jbGuardarNota = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -56,7 +58,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         jcElegirAlumnoNotas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jcElegirAlumnoNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 180, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -67,7 +69,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtNotas);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 340, 250));
 
@@ -117,10 +119,10 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbEditarNota;
     private javax.swing.JButton jbGuardarNota;
     private javax.swing.JButton jbSalir;
     private javax.swing.JComboBox<String> jcElegirAlumnoNotas;
+    private javax.swing.JTable jtNotas;
     // End of variables declaration//GEN-END:variables
 }
