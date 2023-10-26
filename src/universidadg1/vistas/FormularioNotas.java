@@ -15,6 +15,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
      */
     public FormularioNotas() {
         initComponents();
+        armarCabecera();
     }
 
     /**
@@ -106,6 +107,9 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void armarCabecera(){
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

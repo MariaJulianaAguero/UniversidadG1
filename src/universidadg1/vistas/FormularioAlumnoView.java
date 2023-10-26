@@ -287,6 +287,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         limpiarCampos();
         alumnoActual = null;
+        jbBuscarAlumno.setEnabled(false);
 
     }//GEN-LAST:event_jbNuevoAlumnoActionPerformed
 
@@ -314,6 +315,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
             if(alumnoActual==null){
                 alumnoActual=new Alumno(dni, apellido, nombre, fechaNac, true);
                 aluData.guardarAlumno(alumnoActual);
+                jbBuscarAlumno.setEnabled(true);
                 
             }else{
                 alumnoActual.setDni(dni);
