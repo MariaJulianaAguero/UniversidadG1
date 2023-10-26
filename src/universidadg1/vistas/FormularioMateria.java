@@ -269,6 +269,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     private void jbNuevoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoMateriaActionPerformed
         // TODO add your handling code here:
         limpiarCampos();
+        jtCodigo.setEnabled(false);
     }//GEN-LAST:event_jbNuevoMateriaActionPerformed
 
     private void limpiarCampos() {
