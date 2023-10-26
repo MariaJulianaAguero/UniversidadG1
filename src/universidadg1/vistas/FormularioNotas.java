@@ -35,6 +35,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         jbGuardarNota = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jbEditarNota = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -83,6 +84,9 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 39, 340, 10));
 
+        jbEditarNota.setText("Modificar");
+        jPanel1.add(jbEditarNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,6 +114,7 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbEditarNota;
     private javax.swing.JButton jbGuardarNota;
     private javax.swing.JButton jbSalir;
     private javax.swing.JComboBox<String> jcElegirAlumnoNotas;
