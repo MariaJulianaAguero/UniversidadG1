@@ -262,12 +262,15 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
             Integer dni = Integer.parseInt(jtDni.getText());
             alumnoActual = aluData.buscarAlumnoPorDni(dni);
             if (alumnoActual != null) {
+                jbEliminarAlumno.setEnabled(true);
                 jtApellido.setText(alumnoActual.getApellido());
                 jtNombre.setText(alumnoActual.getNombre());
                 jrEstado.setSelected(alumnoActual.isActivo());
                 LocalDate lc = alumnoActual.getFechaNac();
                 java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 jdFechaNacimiento.setDate(date);
+            }else{
+                jbEliminarAlumno.setEnabled(false);
             }
 
         } catch (NumberFormatException ex) {
