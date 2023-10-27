@@ -4,20 +4,52 @@
  */
 package universidadg1.vistas;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import universidadg1.accesoadatos.AlumnoData;
+import universidadg1.accesoadatos.InscripcionData;
+import universidadg1.accesoadatos.MateriaData;
+import universidadg1.entidades.Alumno;
+import universidadg1.entidades.Inscripcion;
+import universidadg1.entidades.Materia;
 
 /**
  *
  * @author Gonza
  */
 public class FormularioNotas extends javax.swing.JInternalFrame {
-private DefaultTableModel modelo;
+    private DefaultTableModel modelo;
+    private List<Materia> listaMat;
+    private List<Alumno> listaAlu;
+    
+    private InscripcionData inscData;
+    private MateriaData matData;
+    private AlumnoData alData;
+    
+    private Inscripcion insc = null;
+    
     /**
      * Creates new form FormularioNotas
      */
     public FormularioNotas() {
         initComponents();
+        alData = new AlumnoData();
+        listaAlu = alData.listaAlumnos();
+        matData = new MateriaData();
+        modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int f, int c) {
+                if(c==2){
+                    return true;
+                }
+                return false;
+            }
+        };
+        inscData = new InscripcionData();
         armarCabecera();
+        
+        cargarAlumnos();
     }
 
     /**
@@ -34,11 +66,11 @@ private DefaultTableModel modelo;
         jLabel2 = new javax.swing.JLabel();
         jcElegirAlumnoNotas = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtNotas = new javax.swing.JTable();
+        jtMaterias = new javax.swing.JTable();
         jbGuardarNota = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jbEditarNota = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -55,10 +87,14 @@ private DefaultTableModel modelo;
         jLabel2.setText("Seleccione un Alumno");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        jcElegirAlumnoNotas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcElegirAlumnoNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcElegirAlumnoNotasActionPerformed(evt);
+            }
+        });
         jPanel1.add(jcElegirAlumnoNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 180, -1));
 
-        jtNotas.setModel(new javax.swing.table.DefaultTableModel(
+        jtMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -69,7 +105,7 @@ private DefaultTableModel modelo;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jtNotas);
+        jScrollPane1.setViewportView(jtMaterias);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 340, 250));
 
@@ -87,18 +123,19 @@ private DefaultTableModel modelo;
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 39, 340, 10));
 
-        jbEditarNota.setText("Modificar");
-        jPanel1.add(jbEditarNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
+        jbModificar.setText("Modificar");
+        jbModificar.setEnabled(false);
+        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
         );
 
         pack();
@@ -109,20 +146,46 @@ private DefaultTableModel modelo;
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
-    private void armarCabecera(){
-        
-    }
+    private void jcElegirAlumnoNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcElegirAlumnoNotasActionPerformed
+        // TODO add your handling code here:
+        cargarAlumnos();
+    }//GEN-LAST:event_jcElegirAlumnoNotasActionPerformed
 
+    private void armarCabecera(){
+        ArrayList<Object> cabe = new ArrayList<>();
+        cabe.add("Codigo");
+        cabe.add("Nombre");
+        cabe.add("Nota");
+        
+        for (Object object : cabe) {
+            modelo.addColumn(object);
+        }
+        jtMaterias.setModel(modelo);
+    }
+    
+    private void cargarAlumnos(){
+        for(Alumno item: listaAlu){
+            jcElegirAlumnoNotas.addItem(item);
+        }
+    }
+    
+    private void cargarNota(){
+        Alumno al = (Alumno) jcElegirAlumnoNotas.getSelectedItem();
+        List<Materia> listaMat = (ArrayList) inscData.obtenerMateriasCursadas(al.getIdAlumno());
+        for (Materia ma : listaMat) {
+            modelo.addRow(new Object[]{ma.getIdMateria(), ma.getNombre(),insc});
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton jbEditarNota;
     private javax.swing.JButton jbGuardarNota;
+    private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<String> jcElegirAlumnoNotas;
-    private javax.swing.JTable jtNotas;
+    private javax.swing.JComboBox<Alumno> jcElegirAlumnoNotas;
+    private javax.swing.JTable jtMaterias;
     // End of variables declaration//GEN-END:variables
 }
