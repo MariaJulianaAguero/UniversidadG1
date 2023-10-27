@@ -288,6 +288,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
         limpiarCampos();
         alumnoActual = null;
         jbBuscarAlumno.setEnabled(false);
+        jbEliminarAlumno.setEnabled(false);
 
     }//GEN-LAST:event_jbNuevoAlumnoActionPerformed
 
