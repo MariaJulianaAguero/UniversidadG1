@@ -4,17 +4,35 @@
  */
 package universidadg1.vistas;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import universidadg1.accesoadatos.AlumnoData;
+import universidadg1.accesoadatos.InscripcionData;
+import universidadg1.accesoadatos.MateriaData;
+import universidadg1.entidades.Alumno;
+import universidadg1.entidades.Materia;
+
 /**
  *
  * @author Gonza
  */
 public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
-
+    private DefaultTableModel modelo;
+    private List<Alumno> listaAlu;
+    private List<Materia> listaMat;
+    private InscripcionData inscData;
+    private MateriaData matData;
+    private AlumnoData alData;
+    
+    
     /**
      * Creates new form AlumnosPorMateriaView
      */
     public AlumnosPorMateriaView() {
         initComponents();
+        cargarMaterias();
+        armarCabeceraTabla();
     }
 
     /**
@@ -31,7 +49,7 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jcMateria = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtAlumnosXmateria = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jbSalir = new javax.swing.JButton();
 
@@ -51,10 +69,14 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
         jLabel2.setText("Seleccione una Materia");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
-        jcMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcMateriaActionPerformed(evt);
+            }
+        });
         jPanel1.add(jcMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 150, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtAlumnosXmateria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,7 +87,7 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtAlumnosXmateria);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 390, 250));
 
@@ -99,6 +121,30 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jcMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMateriaActionPerformed
+        // TODO add your handling code here:
+        cargarMaterias();
+    }//GEN-LAST:event_jcMateriaActionPerformed
+
+    private void cargarMaterias(){
+        for(Materia item: listaMat){
+            jcMateria.addItem(item);
+        }
+    }
+    
+    private void armarCabeceraTabla(){
+        ArrayList<Object> filaCabecera = new ArrayList<>();
+        filaCabecera.add("ID");
+        filaCabecera.add("Dni");
+        filaCabecera.add("Apellido");
+        filaCabecera.add("Nombre");
+        
+        for (Object it : filaCabecera) {
+            modelo.addColumn(it);
+        }
+        jtAlumnosXmateria.setModel(modelo);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -106,8 +152,8 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<String> jcMateria;
+    private javax.swing.JComboBox<Materia> jcMateria;
+    private javax.swing.JTable jtAlumnosXmateria;
     // End of variables declaration//GEN-END:variables
 }

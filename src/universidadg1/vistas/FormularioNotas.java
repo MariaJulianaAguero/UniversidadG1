@@ -110,6 +110,11 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 340, 250));
 
         jbGuardarNota.setText("Guardar");
+        jbGuardarNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarNotaActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbGuardarNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
         jbSalir.setText("Salir");
@@ -149,7 +154,12 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
     private void jcElegirAlumnoNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcElegirAlumnoNotasActionPerformed
         // TODO add your handling code here:
         cargarAlumnos();
+        cargarNota();
     }//GEN-LAST:event_jcElegirAlumnoNotasActionPerformed
+
+    private void jbGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarNotaActionPerformed
+
+    }//GEN-LAST:event_jbGuardarNotaActionPerformed
 
     private void armarCabecera(){
         ArrayList<Object> cabe = new ArrayList<>();

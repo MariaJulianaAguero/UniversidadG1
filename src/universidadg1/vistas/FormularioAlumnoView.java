@@ -247,11 +247,11 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
 
     private void jbEliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarAlumnoActionPerformed
         // TODO add your handling code here:
-        if(alumnoActual!=null){
-        aluData.borradoLogicoAlumno(alumnoActual.getIdAlumno());
-        alumnoActual=null;
-        limpiarCampos();
-    }else{
+        if (alumnoActual != null) {
+            aluData.borradoLogicoAlumno(alumnoActual.getIdAlumno());
+            alumnoActual = null;
+            limpiarCampos();
+        } else {
             JOptionPane.showMessageDialog(this, "No hay ningun alumno seleccionado");
         }
     }//GEN-LAST:event_jbEliminarAlumnoActionPerformed
@@ -269,7 +269,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
                 LocalDate lc = alumnoActual.getFechaNac();
                 java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 jdFechaNacimiento.setDate(date);
-            }else{
+            } else {
                 jbEliminarAlumno.setEnabled(false);
             }
 
@@ -294,30 +294,30 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
     private void jbGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarAlumnoActionPerformed
         // TODO add your handling code here:
         try {
-            Integer dni=Integer.parseInt(jtDni.getText());
+            Integer dni = Integer.parseInt(jtDni.getText());
             String nombre = jtNombre.getText();
             String apellido = jtApellido.getText();
-            
-            if(nombre.isEmpty() || apellido.isEmpty()){
+
+            if (nombre.isEmpty() || apellido.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No puede dejar campos vacios");
                 return;
             }
-             Alumno alumno = aluData.buscarAlumnoPorDni(dni);
-        if (alumno != null && (alumnoActual == null || !alumnoActual.equals(alumno))) {
-            JOptionPane.showMessageDialog(this, "El DNI ingresado ya existe");
-            return;
-        }
+            Alumno alumno = aluData.buscarAlumnoPorDni(dni);
+            if (alumno != null && (alumnoActual == null || !alumnoActual.equals(alumno))) {
+                JOptionPane.showMessageDialog(this, "El DNI ingresado ya existe");
+                return;
+            }
             java.util.Date sFecha = jdFechaNacimiento.getDate();
             //transformar en localdate
-            LocalDate fechaNac=sFecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            Boolean activo =jrEstado.isSelected();
-            
-            if(alumnoActual==null){
-                alumnoActual=new Alumno(dni, apellido, nombre, fechaNac, true);
+            LocalDate fechaNac = sFecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            Boolean activo = jrEstado.isSelected();
+
+            if (alumnoActual == null) {
+                alumnoActual = new Alumno(dni, apellido, nombre, fechaNac, true);
                 aluData.guardarAlumno(alumnoActual);
                 jbBuscarAlumno.setEnabled(true);
-                
-            }else{
+
+            } else {
                 alumnoActual.setDni(dni);
                 alumnoActual.setApellido(apellido);
                 alumnoActual.setNombre(nombre);
@@ -330,32 +330,33 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        jbBuscarAlumno.setEnabled(true);
         try {
-        Integer dni=Integer.parseInt(jtDni.getText());
-        String nombre = jtNombre.getText();
-        String apellido = jtApellido.getText();
-        
-        if(nombre.isEmpty() || apellido.isEmpty()){
-            JOptionPane.showMessageDialog(this, "No puede dejar campos vacios");
-            return;
+            Integer dni = Integer.parseInt(jtDni.getText());
+            String nombre = jtNombre.getText();
+            String apellido = jtApellido.getText();
+
+            if (nombre.isEmpty() || apellido.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No puede dejar campos vacios");
+                return;
+            }
+            java.util.Date sFecha = jdFechaNacimiento.getDate();
+            //transformar en localdate
+            LocalDate fechaNac = sFecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            Boolean activo = jrEstado.isSelected();
+
+            if (alumnoActual != null) {
+                alumnoActual.setDni(dni);
+                alumnoActual.setApellido(apellido);
+                alumnoActual.setNombre(nombre);
+                alumnoActual.setFechaNac(fechaNac);
+                aluData.modificarAlumno(alumnoActual);
+            }
+        } catch (Exception e) {
         }
-        java.util.Date sFecha = jdFechaNacimiento.getDate();
-        //transformar en localdate
-        LocalDate fechaNac=sFecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        Boolean activo =jrEstado.isSelected();
-        
-        if(alumnoActual!=null){
-            alumnoActual.setDni(dni);
-            alumnoActual.setApellido(apellido);
-            alumnoActual.setNombre(nombre);
-            alumnoActual.setFechaNac(fechaNac);
-            aluData.modificarAlumno(alumnoActual);
-        }
-    } catch (Exception e) {
-    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-private void limpiarCampos(){
+    private void limpiarCampos() {
         jtDni.setText("");
         jtApellido.setText("");
         jtNombre.setText("");
