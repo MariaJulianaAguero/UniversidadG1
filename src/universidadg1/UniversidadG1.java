@@ -123,7 +123,7 @@ public class UniversidadG1 {
 //      InscripcionData ind = new InscripcionData();
 //      ind.borrarInscripcionMateriaAlumno(7, 1);
 
-//////Obtener alumnosxMateria
+////Obtener alumnosxMateria
 //    InscripcionData ind = new InscripcionData();
 //    int idMateria = 1;
 //    List<Alumno> alumnos = ind.obtenerAlumnosXMateria(idMateria);
@@ -132,6 +132,21 @@ public class UniversidadG1 {
 //        System.out.println("Nombre del alumno: " + alumno.getNombre());
 //        System.out.println("-----------------");
 //    }
+
+////Inscripciones por alumno
+//        InscripcionData ins= new InscripcionData();
+//        List<Inscripcion> obtenerInscr = ins.obtenerInscripcionesPorAlumno(5);
+//        if (obtenerInscr !=null) {
+//        for (int i = 0; i < obtenerInscr.size(); i++) {
+//            Inscripcion inscripcion = obtenerInscr.get(i);
+//            System.out.println(inscripcion.getMateria());
+//            System.out.println(inscripcion.getAlumno().getIdAlumno());
+//            System.out.println(inscripcion.getNota());
+//        }
+//            
+//        }else{
+//                System.out.println("Lista sin datos");
+//                }
 
 //-------------------------
 

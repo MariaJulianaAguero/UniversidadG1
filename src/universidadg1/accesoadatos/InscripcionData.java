@@ -73,20 +73,34 @@ public class InscripcionData {
     
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int idAlumno){
         ArrayList<Inscripcion>cursadas = new ArrayList<>();
-        String sql="SELECT * FROM inscripcion WHERE idAlumno=?";
+        String sql="SELECT `idInscripto`,`idAlumno`,materia.idMateria,materia.nombre, nota FROM inscripcion JOIN materia ON (inscripcion.idMateria = materia.idMateria) WHERE idAlumno = ?";
         try{
+            
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             ResultSet rs=ps.executeQuery();
             while(rs.next()){
                 Inscripcion insc= new Inscripcion();
-                insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                Alumno alu= ad.buscarAlumnoPor(rs.getInt("idAlumno"));
-                Materia mat= md.buscarMateria(rs.getInt("idMateria"));
-                insc.setAlumno(alu);
-                insc.setMateria(mat);
-                insc.setNota(rs.getDouble("nota"));
+                insc.setIdInscripcion(rs.getInt("idInscripto"));
+                insc.setNota(rs.getInt("nota"));
+                
+                //modificacion ahora
+                Alumno alumno = new Alumno();
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                insc.setAlumno(alumno);
+                
+                Materia materia = new Materia();
+                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                insc.setMateria(materia);
+                
                 cursadas.add(insc);
+//                Alumno alu= ad.buscarAlumnoPor(rs.getInt("idAlumno"));
+//                Materia mat= md.buscarMateria(rs.getInt("idMateria"));
+//                insc.setAlumno(alu);
+//                insc.setMateria(mat);
+//                insc.setNota(rs.getDouble("nota"));
+//                cursadas.add(insc);
                
             }
             ps.close();

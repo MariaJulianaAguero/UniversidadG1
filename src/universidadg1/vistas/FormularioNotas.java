@@ -22,6 +22,8 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo;
     private List<Materia> listaMat;
     private List<Alumno> listaAlu;
+    //
+    private List<Inscripcion> listaInscripcion;
     
     private InscripcionData inscData;
     private MateriaData matData;
@@ -153,24 +155,50 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
 
     private void jcElegirAlumnoNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcElegirAlumnoNotasActionPerformed
         // TODO add your handling code here:
-        cargarAlumnos();
-        cargarNota();
+        borrarFilaTabla();
+        Alumno elegido = (Alumno)jcElegirAlumnoNotas.getSelectedItem();
+        listaInscripcion = inscData.obtenerInscripcionesPorAlumno(elegido.getIdAlumno());
+        if(listaInscripcion.size()>0){
+            for(Inscripcion insc : listaInscripcion){
+                modelo.addRow(new Object[]{
+                    insc.getMateria().getIdMateria(),
+                    insc.getMateria().getNombre(),
+                    insc.getNota()
+                });
+            }
+        }
+
+//        cargarAlumnos();
+//      
+//        cargarNota();
+        
     }//GEN-LAST:event_jcElegirAlumnoNotasActionPerformed
 
     private void jbGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarNotaActionPerformed
-
+        Alumno al = (Alumno) jcElegirAlumnoNotas.getSelectedItem();
+        for (int i = 0; i < jtMaterias.getRowCount(); i++) {
+            int idMateria = (int) jtMaterias.getValueAt(i, 0);
+            int nota = (int) jtMaterias.getValueAt(i, 2);
+            
+            inscData.actualizarNota(al.getIdAlumno(), idMateria, nota);
+        }
+        cargarNota();
     }//GEN-LAST:event_jbGuardarNotaActionPerformed
 
     private void armarCabecera(){
-        ArrayList<Object> cabe = new ArrayList<>();
-        cabe.add("Codigo");
-        cabe.add("Nombre");
-        cabe.add("Nota");
-        
-        for (Object object : cabe) {
-            modelo.addColumn(object);
-        }
-        jtMaterias.setModel(modelo);
+          modelo.addColumn("codigo");
+          modelo.addColumn("Nombre");
+          modelo.addColumn("Nota");
+          jtMaterias.setModel(modelo);
+//        ArrayList<Object> cabe = new ArrayList<>();
+//        cabe.add("Codigo");
+//        cabe.add("Nombre");
+//        cabe.add("Nota");
+//        
+//        for (Object object : cabe) {
+//            modelo.addColumn(object);
+//        }
+//        jtMaterias.setModel(modelo);
     }
     
     private void cargarAlumnos(){
@@ -184,6 +212,14 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
         List<Materia> listaMat = (ArrayList) inscData.obtenerMateriasCursadas(al.getIdAlumno());
         for (Materia ma : listaMat) {
             modelo.addRow(new Object[]{ma.getIdMateria(), ma.getNombre(),insc});
+        }
+    }
+    
+    private void borrarFilaTabla(){
+        int indice = modelo.getRowCount();
+        
+        for (int i = indice; i > 0; i--) {
+            modelo.removeRow(0);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
