@@ -91,13 +91,13 @@ public class UniversidadG1 {
 //        }
 
 //////////mostrar lista de materia
-//        MateriaData matDat= new MateriaData();
-//        List<Materia> materiasActivas = matDat.obtenerMateriasActivas();
-//
-//        for (Materia materia : materiasActivas) {
-//            System.out.println("ID: " + materia.getIdMateria() 
-//            +  ", Nombre: " + materia.getNombre() + ", año: " + materia.getAnioMateria());
-//        }
+        MateriaData matDat= new MateriaData();
+        List<Materia> materiasActivas = matDat.listarMaterias();
+
+        for (Materia materia : materiasActivas) {
+            System.out.println("ID: " + materia.getIdMateria() 
+            +  ", Nombre: " + materia.getNombre() + ", año: " + materia.getAnioMateria());
+        }
 
 //////////para eliminado logico de materia
 //        materiaData.eliminarMateria(1);

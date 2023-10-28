@@ -133,7 +133,7 @@ public class AlumnoData {
             ResultSet resultSet = preparedStatement.executeQuery();
             
             while (resultSet.next()) {
-                int idAlumno = resultSet.getInt("iDalumno");
+                int idAlumno = resultSet.getInt("idAlumno");
                 int dni = resultSet.getInt("dni");
                 String apellido = resultSet.getString("apellido");
                 String nombre = resultSet.getString("nombre");

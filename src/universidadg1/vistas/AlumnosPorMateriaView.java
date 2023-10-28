@@ -4,14 +4,9 @@
  */
 package universidadg1.vistas;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import universidadg1.accesoadatos.AlumnoData;
-import universidadg1.accesoadatos.InscripcionData;
-import universidadg1.accesoadatos.MateriaData;
-import universidadg1.entidades.Alumno;
 import universidadg1.entidades.Materia;
+
 
 /**
  *
@@ -19,19 +14,13 @@ import universidadg1.entidades.Materia;
  */
 public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo;
-    private List<Alumno> listaAlu;
-    private List<Materia> listaMat;
-    private InscripcionData inscData;
-    private MateriaData matData;
-    private AlumnoData alData;
-    
     
     /**
      * Creates new form AlumnosPorMateriaView
      */
     public AlumnosPorMateriaView() {
         initComponents();
-        cargarMaterias();
+        modelo = new DefaultTableModel();
         armarCabeceraTabla();
     }
 
@@ -69,11 +58,6 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
         jLabel2.setText("Seleccione una Materia");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
-        jcMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcMateriaActionPerformed(evt);
-            }
-        });
         jPanel1.add(jcMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 150, -1));
 
         jtAlumnosXmateria.setModel(new javax.swing.table.DefaultTableModel(
@@ -121,29 +105,23 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
-    private void jcMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMateriaActionPerformed
-        // TODO add your handling code here:
-        cargarMaterias();
-    }//GEN-LAST:event_jcMateriaActionPerformed
-
     private void cargarMaterias(){
-        for(Materia item: listaMat){
-            jcMateria.addItem(item);
-        }
     }
     
     private void armarCabeceraTabla(){
-        ArrayList<Object> filaCabecera = new ArrayList<>();
-        filaCabecera.add("ID");
-        filaCabecera.add("Dni");
-        filaCabecera.add("Apellido");
-        filaCabecera.add("Nombre");
+        modelo.addColumn("ID");
+        modelo.addColumn("DNI");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Nombre");
+        jtAlumnosXmateria.setModel(modelo);      
+    }
+    
+    private void borrarFilaTabla(){
+        int indice = modelo.getRowCount();
         
-        for (Object it : filaCabecera) {
-            modelo.addColumn(it);
+        for (int i = indice; i > 0; i--) {
+            modelo.removeRow(0);
         }
-        jtAlumnosXmateria.setModel(modelo);
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
