@@ -4,7 +4,12 @@
  */
 package universidadg1.vistas;
 
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import universidadg1.accesoadatos.InscripcionData;
+import universidadg1.accesoadatos.MateriaData;
+import universidadg1.entidades.Alumno;
+import universidadg1.entidades.Inscripcion;
 import universidadg1.entidades.Materia;
 
 
@@ -14,6 +19,13 @@ import universidadg1.entidades.Materia;
  */
 public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo;
+    private List<Alumno> listAlumno;
+    private List<Materia> listMateria;
+    private List<Inscripcion> listInscripcion;
+    
+    private InscripcionData inscData;
+    private MateriaData matData;
+    private Alumno alData;
     
     /**
      * Creates new form AlumnosPorMateriaView
