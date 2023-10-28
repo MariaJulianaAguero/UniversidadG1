@@ -6,6 +6,7 @@ package universidadg1.vistas;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidadg1.accesoadatos.AlumnoData;
 import universidadg1.accesoadatos.InscripcionData;
@@ -175,14 +176,25 @@ public class FormularioNotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcElegirAlumnoNotasActionPerformed
 
     private void jbGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarNotaActionPerformed
-        Alumno al = (Alumno) jcElegirAlumnoNotas.getSelectedItem();
-        for (int i = 0; i < jtMaterias.getRowCount(); i++) {
-            int idMateria = (int) jtMaterias.getValueAt(i, 0);
-            int nota = (int) jtMaterias.getValueAt(i, 2);
-            
-            inscData.actualizarNota(al.getIdAlumno(), idMateria, nota);
-        }
-        cargarNota();
+          int filaSelec = jtMaterias.getSelectedRow();
+          if(filaSelec != -1){
+              Alumno a = (Alumno) jcElegirAlumnoNotas.getSelectedItem();
+              int idMat = (Integer) modelo.getValueAt(filaSelec, 0);
+              double nota = Double.parseDouble((String) modelo.getValueAt(filaSelec, 2));
+              inscData.actualizarNota(a.getIdAlumno(), idMat, nota);
+              borrarFilaTabla();
+          }else{
+              JOptionPane.showMessageDialog(this, "Seleccione la materia para modificar su nota");
+          }
+
+//        Alumno al = (Alumno) jcElegirAlumnoNotas.getSelectedItem();
+//        for (int i = 0; i < jtMaterias.getRowCount(); i++) {
+//            int idMateria = (int) jtMaterias.getValueAt(i, 0);
+//            int nota = (int) jtMaterias.getValueAt(i, 2);
+//            
+//            inscData.actualizarNota(al.getIdAlumno(), idMateria, nota);
+//        }
+//        cargarNota();
     }//GEN-LAST:event_jbGuardarNotaActionPerformed
 
     private void armarCabecera(){
