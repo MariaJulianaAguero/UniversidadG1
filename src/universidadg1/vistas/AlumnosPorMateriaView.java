@@ -4,6 +4,7 @@
  */
 package universidadg1.vistas;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import universidadg1.accesoadatos.InscripcionData;
@@ -34,6 +35,7 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
         initComponents();
         modelo = new DefaultTableModel();
         armarCabeceraTabla();
+        cargarMaterias();
     }
 
     /**
@@ -48,7 +50,7 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jcMateria = new javax.swing.JComboBox<>();
+        jcMateria = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAlumnosXmateria = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
@@ -70,7 +72,12 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
         jLabel2.setText("Seleccione una Materia");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
-        jPanel1.add(jcMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 150, -1));
+        jcMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcMateriaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jcMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 210, -1));
 
         jtAlumnosXmateria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,7 +124,54 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jcMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMateriaActionPerformed
+        cargarMaterias();
+        
+//        Materia elegida = (Materia) jcMateria.getSelectedItem();
+//        listAlumno = matData.listarMaterias(elegida.getIdMateria());
+//        if(listMateria.size()>0){
+//            for(Materia mat : listMateria){
+//                modelo.addRow(new Object[]{
+//                    mat.get
+//                });
+//            }
+//        }
+    }//GEN-LAST:event_jcMateriaActionPerformed
+
     private void cargarMaterias(){
+        borrarFilaTabla();
+        MateriaData mat = new MateriaData();
+        InscripcionData i = new InscripcionData();
+        String materiaSeleccionada = (String) jcMateria.getSelectedItem();
+        ArrayList <Alumno> alumnos = new ArrayList<>();
+        
+        for(Materia m: mat.listarMaterias()){
+            if(m.getNombre().equalsIgnoreCase(materiaSeleccionada)){
+                for(Alumno a: i.obtenerAlumnosXMateria(m.getIdMateria())){
+                    modelo.addRow(new Object[]{
+                        a.getIdAlumno(),
+                        a.getDni(),
+                        a.getApellido(),
+                        a.getNombre()
+                    });
+                }
+            }
+        }
+//        InscripcionData ins = new InscripcionData();
+//        Alumno alu = new Alumno();
+//        Materia mat = new Materia();
+//        if(jcMateria.getSelectedIndex() >= 1){
+//            mat =(Materia)jcMateria.getSelectedItem();
+//            
+//            List<Alumno> lista = ins.obtenerAlumnosXMateria(mat.getIdMateria());
+//            for(Alumno alumn: lista){
+//                modelo.addRow(new Object[]{
+//                    alumn.getDni(),
+//                    alumn.getApellido(),
+//                    alumn.getNombre()
+//                });
+//            }
+//        }
     }
     
     private void armarCabeceraTabla(){
@@ -143,7 +197,7 @@ public class AlumnosPorMateriaView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<Materia> jcMateria;
+    private javax.swing.JComboBox jcMateria;
     private javax.swing.JTable jtAlumnosXmateria;
     // End of variables declaration//GEN-END:variables
 }

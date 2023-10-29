@@ -199,7 +199,8 @@ public class InscripcionData {
     
     public List<Alumno> obtenerAlumnosXMateria(int idMateria){
         ArrayList<Alumno> alumnos = new ArrayList<>();
-    String sql= "SELECT * FROM alumno WHERE idAlumno IN "
+
+        String sql= "SELECT * FROM alumno WHERE idAlumno IN "
             +"(SELECT idAlumno FROM inscripcion WHERE idMateria = ?)";
     try{
         PreparedStatement ps= con.prepareStatement (sql);
@@ -208,11 +209,16 @@ public class InscripcionData {
         while(rs.next()){
             Alumno alumno = new Alumno();
             alumno.setIdAlumno(rs.getInt("idAlumno"));
+            alumno.setDni(rs.getInt("dni"));
+            alumno.setApellido(rs.getString("apellido"));
             alumno.setNombre(rs.getString("nombre"));
+            
             alumnos.add(alumno);
         }
     ps.close();
     } catch (SQLException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion: " + ex.getMessage());
         JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripcion");
     }
     return alumnos;

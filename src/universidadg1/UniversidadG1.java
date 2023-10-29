@@ -91,13 +91,13 @@ public class UniversidadG1 {
 //        }
 
 //////////mostrar lista de materia
-        MateriaData matDat= new MateriaData();
-        List<Materia> materiasActivas = matDat.listarMaterias();
-
-        for (Materia materia : materiasActivas) {
-            System.out.println("ID: " + materia.getIdMateria() 
-            +  ", Nombre: " + materia.getNombre() + ", año: " + materia.getAnioMateria());
-        }
+//        MateriaData matDat= new MateriaData();
+//        List<Materia> materiasActivas = matDat.listarMaterias();
+//
+//        for (Materia materia : materiasActivas) {
+//            System.out.println("ID: " + materia.getIdMateria() 
+//            +  ", Nombre: " + materia.getNombre() + ", año: " + materia.getAnioMateria());
+//        }
 
 //////////para eliminado logico de materia
 //        materiaData.eliminarMateria(1);
@@ -124,14 +124,22 @@ public class UniversidadG1 {
 //      ind.borrarInscripcionMateriaAlumno(7, 1);
 
 ////Obtener alumnosxMateria
-//    InscripcionData ind = new InscripcionData();
-//    int idMateria = 1;
-//    List<Alumno> alumnos = ind.obtenerAlumnosXMateria(idMateria);
-//    for(Alumno alumno:alumnos){
-//        System.out.println("Id del Alumno: " + alumno.getIdAlumno());
-//        System.out.println("Nombre del alumno: " + alumno.getNombre());
-//        System.out.println("-----------------");
-//    }
+    
+//    InscripcionData i = new InscripcionData();
+//        int idMateria = 2; // Reemplaza esto con un ID de materia válido
+//
+//        try {
+//            List<Alumno> alumnos = i.obtenerAlumnosXMateria(idMateria);
+//            for (Alumno a : alumnos) {
+//                System.out.println("ID Alumno: " + a.getIdAlumno());
+//                System.out.println("DNI: " + a.getDni());
+//                System.out.println("Apellido: " + a.getApellido());
+//                System.out.println("Nombre: " + a.getNombre());
+//                System.out.println("------------------------");
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 ////Inscripciones por alumno
 //        InscripcionData ins= new InscripcionData();
